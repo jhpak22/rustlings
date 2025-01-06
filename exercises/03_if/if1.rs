@@ -1,12 +1,23 @@
+use std::cmp::Ordering;
+
 fn bigger(a: i32, b: i32) -> i32 {
     // TODO: Complete this function to return the bigger number!
     // If both numbers are equal, any of them can be returned.
     // Do not use:
     // - another function call
     // - additional variables
+
+    match a.cmp(&b) {
+        Ordering::Less => b,
+        Ordering::Greater => a,
+        Ordering::Equal => b,
+    }
 }
 
 fn main() {
+    println!("{}", bigger(10, 8));
+    println!("{}", bigger(32, 42));
+    println!("{}", bigger(42, 42));
     // You can optionally experiment here.
 }
 
